@@ -1,24 +1,40 @@
 package model.entities;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Installment {
 	
-	private Date dueDate;
+	DateTimeFormatter fdt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	
+	private LocalDate dueDate;
 	private Double amount;
 	
 	public Installment() {
 		
 	}
-	public Installment(Date dueDate, Double amount) {
-		this.dueDate = dueDate;
+	public Installment(LocalDate dueDate, Double amount) {
 		this.amount = amount;
+		this.dueDate = dueDate;
 	}
-	public Date getDueDate() {
+	public LocalDate getDueDate() {
 		return dueDate;
+	}
+	public void setDueDate(LocalDate dueDate) {
+		this.dueDate = dueDate;
 	}
 	public Double getAmount() {
 		return amount;
 	}
+	public void setAmount(Double amount) {
+		this.amount = amount;
+	}
 	
+	@Override
+	public String toString() {
+		return dueDate.format(fdt) + 
+				" - " +
+				String.format("%.2f", amount) ;
+	}
+
 }

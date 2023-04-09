@@ -1,16 +1,16 @@
 package model.entities;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Contract {
 
 	private int number;
-	private Date date;
+	private LocalDate date;
 	private Double totalValue;
 	
 	private Installment installment;
 
-	public Contract(int number, Date date, Double totalValue) {
+	public Contract(int number, LocalDate date, Double totalValue) {
 		this.number = number;
 		this.date = date;
 		this.totalValue = totalValue;
@@ -28,12 +28,16 @@ public class Contract {
 		return number;
 	}
 
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
 	public Installment getInstallment() {
 		return installment;
+	}
+	
+	public void setInstallment(Installment installment) {
+		this.installment = installment;
 	}
 	
 }
